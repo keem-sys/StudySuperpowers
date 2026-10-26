@@ -1,0 +1,49 @@
+name: Publish skill downloads
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'platforms/claude/project-instructions.md'
+      - 'platforms/chatgpt/project-instructions.md'
+      - 'scripts/build-skill-downloads.sh'
+      - '.github/workflows/publish-skill-downloads.yml'
+  pull_request:
+    paths:
+      - 'skills/**'
+      - 'platforms/claude/project-instructions.md'
+      - 'platforms/chatgpt/project-instructions.md'
+      - 'scripts/build-skill-downloads.sh'
+      - '.github/workflows/publish-skill-downloads.yml'
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: github.event_name != 'release'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and validate downloads
+        run: bash ./scripts/build-skill-downloads.sh "$RUNNER_TEMP/studysuperpowers-downloads"
+
+  publish:
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and validate downloads
+        run: bash ./scripts/build-skill-downloads.sh "$RUNNER_TEMP/studysuperpowers-downloads"
+      - name: Attach downloads to the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOWNLOAD_DIR: ${{ runner.temp }}/studysuperpowers-downloads
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          REPOSITORY: ${{ github.repository }}
+        run: gh release upload "$RELEASE_TAG" "$DOWNLOAD_DIR"/*.zip "$DOWNLOAD_DIR"/*.txt --repo "$REPOSITORY" --clobber
