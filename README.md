@@ -1,16 +1,16 @@
 # StudySuperpowers
 
-StudySuperpowers turns Claude and ChatGPT into structured study partners that help you understand difficult concepts, test your knowledge, and improve your exam answers using your own course materials.
+AI workflows that help you learn, not just get answers.
 
-It helps students understand difficult topics, practise active recall, and improve exam answers without needing prompt-engineering experience.
+StudySuperpowers turns Claude and ChatGPT into structured study partners that help university students understand difficult concepts, practise active recall, and improve exam answers using their own course materials - without needing prompt-engineering experience.
 
 Read [Why StudySuperpowers?](WHY_STUDYSUPERPOWERS.md) to understand the project's rationale and the assumptions that still need validation.
 
 ## Study workflows
 
-- **[Learn a topic](skills/learn-topic/SKILL.md)** — Build understanding progressively and check comprehension.
-- **[Active recall](skills/active-recall/SKILL.md)** — Retrieve and apply knowledge through one question at a time.
-- **[Exam marker](skills/exam-marker/SKILL.md)** — Review practice answers against an official rubric when available, or clearly labelled estimated criteria otherwise.
+- **[Learn a topic](skills/learn-topic/SKILL.md)** — Understand a new or difficult concept through focused explanations grounded in your course materials, with one comprehension check at a time.
+- **[Active recall](skills/active-recall/SKILL.md)** — Test what you can retrieve after studying; answer one question at a time, get specific feedback, and revisit weak areas.
+- **[Exam marker](skills/exam-marker/SKILL.md)** — Improve a practice answer with criterion-by-criterion feedback against an official rubric when supplied; otherwise, any criteria and marks are clearly labelled estimates.
 
 Not sure which workflow to choose? See the [StudySuperpowers Skills Guide](SKILLS_GUIDE.md).
 
@@ -18,12 +18,11 @@ You provide your own course notes, learning outcomes, and practice materials. Th
 
 ## Quick start
 
-1. Choose [Claude](#claude) or [ChatGPT](#chatgpt).
-2. Create a Project for one course.
-3. Add the combined StudySuperpowers Project instructions.
-4. Add a unit of course notes and its learning outcomes.
-5. Follow the platform setup guide and run the [setup verification prompt](guides/setup-verification.md).
-6. Start a session by asking for a workflow by name.
+1. Choose [Claude](platforms/claude/setup.md) or [ChatGPT](platforms/chatgpt/setup.md) and create a Project for one course.
+2. Add that platform's combined StudySuperpowers Project instructions.
+3. Add one unit of course notes and its learning outcomes to the Project.
+4. Run the [setup verification prompt](guides/setup-verification.md) to check what the AI can actually access.
+5. Start a chat and ask for `learn-topic`, `active-recall`, or `exam-marker` by name.
 
 ## Claude
 
