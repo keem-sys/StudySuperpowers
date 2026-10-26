@@ -45,6 +45,9 @@ for skill_dir in "$skills_dir"/*; do
   [[ "$declared_name" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] || { printf 'Invalid skill name: %s\n' "$declared_name" >&2; exit 1; }
   [[ ${#declared_name} -le 64 ]] || { printf 'Skill name exceeds 64 characters: %s\n' "$declared_name" >&2; exit 1; }
   [[ ${#description} -le 200 ]] || { printf 'Claude skill description exceeds 200 characters: %s\n' "$declared_name" >&2; exit 1; }
+  for heading in '## Purpose' '## When to use' '## Required and optional inputs' '## Step-by-step procedure' '## Expected output' '## Guardrails and failure handling' '## Evaluation criteria' '## Usage example'; do
+    grep -Fxq "$heading" "$skill_file" || { printf 'Missing required section in %s: %s\n' "$skill_file" "$heading" >&2; exit 1; }
+  done
 
   if [[ "$zip_tool" == zip ]]; then
     (cd "$skills_dir" && zip -q -r -X "$temp_dir/$skill_name.zip" "$skill_name")
@@ -58,35 +61,24 @@ for skill_dir in "$skills_dir"/*; do
     [[ "$entry" == "$skill_name/"* ]] || { printf 'Unexpected archive path in %s.zip: %s\n' "$skill_name" "$entry" >&2; exit 1; }
   done <<< "$entries"
 
+  cp "$temp_dir/$skill_name.zip" "$output_dir/$skill_name.zip"
+  printf 'Built and validated %s.zip\n' "$skill_name"
+done
+
+for platform in claude chatgpt; do
+  instructions_file="$root_dir/platforms/$platform/project-instructions.md"
+  output_name="$platform-project-instructions.txt"
   {
     awk '
-      NR == 1 && $0 == "---" { in_frontmatter = 1; next }
-      in_frontmatter && $0 == "---" { in_frontmatter = 0; next }
-      !in_frontmatter { print }
-    ' "$skill_file"
-  } > "$temp_dir/$skill_name-workflow.txt"
-
-  for platform in claude chatgpt; do
-    instructions_file="$root_dir/platforms/$platform/project-instructions.md"
-    if [[ "$platform" == claude ]]; then
-      output_name="claude-project-$skill_name.txt"
-    else
-      output_name="chatgpt-$skill_name.txt"
-    fi
-    {
-      awk '
-        /^```text[[:space:]]*$/ { in_block = 1; next }
-        in_block && /^```[[:space:]]*$/ { exit }
-        in_block { print }
-      ' "$instructions_file"
-      printf '\n\nStudySuperpowers workflow: %s\n\n' "$skill_name"
-      cat "$temp_dir/$skill_name-workflow.txt"
-    } > "$temp_dir/$output_name"
-    [[ -s "$temp_dir/$output_name" ]] || { printf 'Empty %s project instructions for %s\n' "$platform" "$skill_name" >&2; exit 1; }
+      /^```text[[:space:]]*$/ { in_block = 1; next }
+      in_block && /^```[[:space:]]*$/ { exit }
+      in_block { print }
+    ' "$instructions_file"
+  } > "$temp_dir/$output_name"
+  [[ -s "$temp_dir/$output_name" ]] || { printf 'Missing combined %s Project instructions\n' "$platform" >&2; exit 1; }
+  for workflow in LEARN-TOPIC ACTIVE-RECALL EXAM-MARKER; do
+    grep -Fq "$workflow" "$temp_dir/$output_name" || { printf '%s Project instructions missing workflow: %s\n' "$platform" "$workflow" >&2; exit 1; }
   done
-
-  cp "$temp_dir/$skill_name.zip" "$output_dir/$skill_name.zip"
-  cp "$temp_dir/claude-project-$skill_name.txt" "$output_dir/claude-project-$skill_name.txt"
-  cp "$temp_dir/chatgpt-$skill_name.txt" "$output_dir/chatgpt-$skill_name.txt"
-  printf 'Built and validated %s.zip and Project instruction files for Claude and ChatGPT.\n' "$skill_name"
+  cp "$temp_dir/$output_name" "$output_dir/$output_name"
+  printf 'Built combined %s Project instructions\n' "$platform"
 done

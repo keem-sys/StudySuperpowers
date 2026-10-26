@@ -17,9 +17,13 @@ The procedure should be actionable and should preserve interaction requirements 
 
 ## Publishing student downloads
 
-Do not create skill ZIP files manually. The [download builder](scripts/build-skill-downloads.sh) creates one Claude ZIP and ready-to-copy Claude and ChatGPT Project instruction text for each skill. It checks skill metadata and validates that every Claude archive contains the correctly named skill folder and `SKILL.md`.
+Do not create skill ZIP files manually. The [download builder](scripts/build-skill-downloads.sh) creates one Claude ZIP per workflow and one combined Project-instructions text file per platform. It checks skill metadata and required sections, validates archive structure, and confirms both combined files include all three workflows.
 
 GitHub Actions runs the builder on relevant pushes and pull requests. When a maintainer publishes a GitHub Release, the workflow builds and validates the packages, then attaches them to that release. The README's direct download links resolve to the latest release assets. The first release must be published after this workflow is available on the default branch.
+
+## Screenshot checklist
+
+Use only genuine, current platform screenshots. Do not recreate product screens or include private information. Existing Claude images cover project creation, instructions, Context, and the Skill upload form. Existing ChatGPT images cover project creation and Project settings. Capture a ChatGPT **Sources > Add sources** view before adding an image for that step. The Claude upload screenshot shows the form, not a successful enabled-Skill state; capture a separate success state only if that confirmation is needed. Use descriptive alt text and relative paths. Add arrows or numbering only when they clarify a specific action.
 
 ## Review checklist
 

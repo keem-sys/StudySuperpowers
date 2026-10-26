@@ -4,31 +4,33 @@ ChatGPT Projects provide project instructions, files, and conversation context. 
 
 ## Create a project
 
-In ChatGPT, select **New project** in the sidebar and give the project a course-specific name. Project availability and file limits can depend on plan and workspace settings.
+In the sidebar, hover over **Projects** and select the **+** button. In the **Create project** dialog, enter a course-specific name, then select **Create project**. Project availability can depend on your plan or workspace settings.
+
+![ChatGPT Create project dialog with the Project name field and Create project button](assets/gpt-create-project.png)
 
 ## Add project instructions
 
-Open the project's options or settings, choose **Project settings**, and add the copyable text from [project-instructions.md](project-instructions.md). The official guide currently places project instructions in the project settings menu; use its latest directions if the interface differs.
+Open the project and select the **•••** menu in the upper-right corner, then choose **Project settings**. Paste the combined instructions for all three workflows into **Project instructions** as described below. The menu label or location may vary; see the [official Projects guide](https://help.openai.com/en/articles/10169521-projects-in-chatgpt) if your interface differs.
+
+![ChatGPT Project settings dialog with the Project instructions field](assets/gpt-project-settings.png)
 
 ## Add course materials
 
-Upload relevant course files or paste text into project sources. Start with learning outcomes and notes for one unit, then add authorised practice questions or an official rubric as needed. Review current file limits and do not upload material you are not permitted to share.
+Open the **Sources** tab and select **Add sources**. Add relevant course files or paste text. Start with learning outcomes and notes for one unit, then add authorised practice questions or an official rubric as needed. Review current file limits and do not upload material you are not permitted to share.
 
-## Install for ChatGPT Projects
+## Add all three StudySuperpowers workflows
 
-ChatGPT Projects do not currently document a native Skill installer. Use the ready-to-copy text download instead. This adds the workflow as project instructions; it is not a native Skill and does not provide automatic skill discovery.
+OpenAI's current Projects documentation describes Project instructions and sources, not a native `SKILL.md` installer. Use the combined text file once; it adds learn-topic, active-recall, and exam-marker together as Project instructions. This is not native Skill installation and does not provide automatic skill discovery.
 
-1. Download the text file for one workflow:
-	- [Learn a topic](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/chatgpt-learn-topic.txt)
-	- [Active recall](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/chatgpt-active-recall.txt)
-	- [Exam marker](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/chatgpt-exam-marker.txt)
-2. Open the downloaded `.txt` file, select all, and copy it.
-3. Paste the text into your project's **Project instructions**. It includes the shared study safeguards and the selected workflow.
-4. If the instructions field rejects the text or you want to switch workflows for one session, paste the text into the first message of that project chat instead. Do not rely on uploading the `.txt` as a source alone to activate its behavior.
+1. Download [all ChatGPT Project instructions](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/chatgpt-project-instructions.txt). This combined file becomes available when a maintainer publishes the first release.
+2. Open the `.txt` file, select all, and copy it.
+3. Paste the text into your Project's **Project instructions** and save. If the release download is not available yet, open [project-instructions.md](project-instructions.md) on GitHub and copy the contents of its text block instead.
+4. Add course notes and learning outcomes under the Project's **Sources** tab using **Add sources**. Do not upload the instructions as a source and expect them to activate.
+5. Start a new chat and run the [setup verification prompt](../../guides/setup-verification.md). Then ask for the mode you want.
 
 ## Start a study workflow
 
-Start a chat within the configured project and ask ChatGPT to use the workflow. These prompts are starting points.
+Start a chat within the configured Project and ask for one workflow by name. All three modes remain available; you do not need to replace Project instructions to switch. These prompts are starting points.
 
 ```text
 Use learn-topic for carrying capacity in my project files. Explain it progressively and ask one comprehension question at a time; wait for my answer.
@@ -42,12 +44,6 @@ Use active-recall for the learning objectives in Unit 2. Mix recall and applicat
 Use exam-marker on my practice answer below. The question is worth 5 marks, and I have included the official rubric. Identify met and missing criteria, a reasoned suggested mark, and a concise model answer.
 ```
 
-This is a manual compatibility approach for ChatGPT Projects. It does not provide native Skill installation or automatic skill discovery. OpenAI may add or change features, so consult the official Projects guide rather than assuming a native `SKILL.md` mechanism exists.
+This is a manual Project-instructions approach for ChatGPT. It does not provide native Skill installation or automatic skill discovery. OpenAI may add or change features, so consult the official Projects guide rather than assuming a native `SKILL.md` mechanism exists.
 
-## Missing, conflicting, or unreadable material
-
-Ask ChatGPT to name the project source it used and identify what is missing or unreadable. When course files conflict, provide the correct course version or instructor guidance. Ask it not to choose between sources silently, and pause conclusions that depend on the conflict.
-
-## Save and reuse progress
-
-At the end of a chat, request and review a concise progress summary using the fields in the [quick-start guide](../../guides/quick-start.md#reuse-progress-between-conversations). The official guide currently documents saving a response to project sources; where that option is available, use it, or keep the summary in a separate course note and upload or paste it into a new chat. Confirm that the summary is available in the next chat rather than assuming it carries over automatically.
+For unreadable or contradictory sources, see [Troubleshooting](../../guides/troubleshooting.md). For progress summaries and customisation, see [Advanced study setup](../../guides/advanced-usage.md).

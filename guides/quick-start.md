@@ -2,25 +2,26 @@
 
 This guide helps you install a workflow and start studying without using a terminal or downloading the repository.
 
-## Choose a project platform
+## Choose a setup
 
-- [Claude Projects setup](../platforms/claude/setup.md)
-- [ChatGPT Projects setup](../platforms/chatgpt/setup.md)
+- **Claude, recommended:** [Path A: Start studying](../platforms/claude/setup.md#path-a-start-studying-recommended) uses one Project instructions file for all three workflows.
+- **Claude, optional Skills:** [Path B](../platforms/claude/setup.md#path-b-install-native-claude-skills-optional) installs native Claude Skills when account settings allow.
+- **ChatGPT:** [Set up a Project](../platforms/chatgpt/setup.md) with one combined instructions file; this is Project configuration, not native Skill installation.
 
-Both services document project instructions and adding project materials. Availability, file limits, and interface details can depend on account or workspace settings. Check the official guide linked from the relevant setup page before use.
+Availability, file limits, and interface details can depend on account or workspace settings. Check the official guide linked from the relevant setup page before use.
 
 ## Install and prepare your project
 
-1. Follow the [Claude installation path](../platforms/claude/setup.md#install-a-workflow-as-a-claude-skill) or [ChatGPT Project setup](../platforms/chatgpt/setup.md#install-for-chatgpt-projects).
+1. Follow one setup path above.
 2. Add only course materials you are permitted to share. Start with learning outcomes and notes for one topic.
 3. Ask for the workflow and topic. For example: “Use learn-topic for osmosis. Start with the basics, then ask me one question at a time.”
 4. Correct missing or misread context before continuing. Do not assume the AI can access a file it has not acknowledged accurately.
 
-## Manual and native Skill use
+## Project instructions and Skills
 
-Claude installation downloads a ZIP and adds it under **Customize > Skills**. This is native Skill installation, subject to Claude capability and organization settings. ChatGPT installation downloads a workflow `.txt` and asks you to copy it into Project instructions. This is a Project setup alternative, not a native Skill installation. OpenAI's current Projects documentation describes instructions and files, not a native `SKILL.md` installer.
+The combined Project instructions provide learn-topic, active-recall, and exam-marker together. Project instructions configure a Project; they are not native Skills. Claude's optional Skill ZIPs install workflows separately and require eligible account settings. ChatGPT's documented approach is Project instructions, not native `SKILL.md` installation.
 
-Release assets are generated and archive-validated by GitHub Actions when a maintainer publishes a release. The repository currently has no release, so the direct download links become available after the first one. StudySuperpowers does not detect a student's account state or install workflows automatically.
+GitHub Actions builds and validates the release assets when a maintainer publishes a release. The repository currently has no release, so direct download links are not active yet. Until then, use the linked Project instructions source files. StudySuperpowers does not detect a student's account state or install workflows automatically.
 
 ## Reuse progress between conversations
 

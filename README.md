@@ -10,44 +10,34 @@ It is for university students who want structured support while keeping their co
 
 ## What is included
 
-- Three reusable study workflows: [Learn a topic](skills/learn-topic/SKILL.md), [Active recall](skills/active-recall/SKILL.md), and [Exam marker](skills/exam-marker/SKILL.md). Use them manually in project conversations, or upload them as custom Claude Skills using the [Claude setup guide](platforms/claude/setup.md#install-a-workflow-as-a-claude-skill).
+- Three reusable study workflows: [Learn a topic](skills/learn-topic/SKILL.md), [Active recall](skills/active-recall/SKILL.md), and [Exam marker](skills/exam-marker/SKILL.md). Use them together through Project instructions or separately as native Claude Skills.
 - A reusable [base instruction template](templates/base-study-instructions.md).
-- Setup guides and copyable project instructions for [Claude Projects](platforms/claude/setup.md) and [ChatGPT Projects](platforms/chatgpt/setup.md).
+- Beginner setup guides for [Claude Projects](platforms/claude/setup.md) and [ChatGPT Projects](platforms/chatgpt/setup.md), with one combined Project instructions file for all three workflows on each platform.
 - A compact [fictional sample course](examples/sample-course/course-outline.md) for trying the workflows.
-- Guidance on [choosing a workflow](guides/choose-your-workflow.md), [getting started](guides/quick-start.md), and [privacy and limitations](guides/privacy-and-limitations.md).
+- A [setup check](guides/setup-verification.md), [troubleshooting guide](guides/troubleshooting.md), and [advanced study guidance](guides/advanced-usage.md).
 
 Students supply their own course materials. This repository does not contain university-specific syllabuses, and its practice examples are not predictions or guarantees of examination questions.
 
 ## Install for Claude
 
-Choose a study workflow and download its ZIP:
+**Recommended for beginners:** follow [Path A: Start studying](platforms/claude/setup.md#path-a-start-studying-recommended). It uses one combined Project instructions file for learn-topic, active-recall, and exam-marker; add course notes once and choose a workflow in each chat.
 
-- [Learn a topic](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/learn-topic.zip)
-- [Active recall](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/active-recall.zip)
-- [Exam marker](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/exam-marker.zip)
+**Optional:** [Path B installs native Claude Skills](platforms/claude/setup.md#path-b-install-native-claude-skills-optional). Skills are separate from Project instructions and require Claude's code-execution capability, which may be controlled by your organization.
 
-In Claude, open **Customize > Skills**, select **+ > Create skill > Upload a skill**, choose the downloaded ZIP, and enable the Skill. Then create a Claude Project, add your course notes under **Context**, and ask Claude to use the workflow. Skills require Claude's code-execution and file-creation capability; account or organization settings may affect availability. See [Claude setup](platforms/claude/setup.md).
-
-If Skills are unavailable for your account, use the [Claude Project setup alternative](platforms/claude/setup.md#project-alternative-for-accounts-without-skills): download the copy-ready instructions, paste them into your Project's **Instructions**, and add notes under **Context**. This is not native Skill installation.
+The repository currently has no published GitHub Release. Until one is available, open [Claude's combined Project instructions](platforms/claude/project-instructions.md) and copy the text in its code block. After release, the Claude guide links the combined text download.
 
 ## Install for ChatGPT
 
-ChatGPT Projects do not document a native `SKILL.md` installer. Download the copy-ready Project instructions for one workflow:
+ChatGPT Projects do not document a native Skill installer. Follow the [ChatGPT Project setup](platforms/chatgpt/setup.md): paste one combined instructions file into **Project instructions**, add course files under **Sources**, then ask for a workflow by name. This is Project configuration, not native Skill installation.
 
-- [Learn a topic](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/chatgpt-learn-topic.txt)
-- [Active recall](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/chatgpt-active-recall.txt)
-- [Exam marker](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/chatgpt-exam-marker.txt)
-
-Create a ChatGPT Project, open **Project settings**, then open the downloaded `.txt` file, copy its contents, and paste them into **Project instructions**. Add your course notes to the Project and start a chat. This is Project configuration, not native Skill installation. See [ChatGPT setup](platforms/chatgpt/setup.md).
-
-**Downloads:** GitHub Release assets are attached automatically when a maintainer publishes a release. This repository does not yet have a published release, so these download links become active after the first release.
+Until the first release is published, open [ChatGPT's combined Project instructions](platforms/chatgpt/project-instructions.md) and copy the text in its code block. After release, the ChatGPT guide links the combined text download.
 
 ## Quick start
 
-1. Choose one of the install paths above.
-2. Add your own lecture notes and learning outcomes to the project's course context.
-3. Ask the AI to begin with one of the prompts in the platform setup guide.
-4. Verify explanations and feedback against your course materials.
+1. Set up a course Project using one of the platform guides above.
+2. Add one unit of course notes and learning outcomes.
+3. Send the [setup verification prompt](guides/setup-verification.md).
+4. Ask for `learn-topic`, `active-recall`, or `exam-marker` and check feedback against your course materials.
 
 ## A short study session
 
@@ -63,7 +53,7 @@ See [the sample course](examples/sample-course/course-outline.md) for a small, s
 
 ## Compatibility and limitations
 
-Claude custom Skills are downloadable ZIP packages generated from these workflow files. ChatGPT support is a copy-ready Project-instructions approach, not a native Skill installation. Interfaces, availability, limits, and model behavior can vary by account and change over time; follow the platform guides for current details.
+Claude custom Skills are downloadable ZIP packages generated from these workflow files. ChatGPT support is a copy-ready combined Project-instructions approach, not a native Skill installation. Interfaces, availability, limits, and model behavior can vary by account and change over time; follow the platform guides for current details.
 
 Claude eligibility depends on code execution being enabled and may be controlled by an organization administrator. The project does not detect account capabilities. Claude's upload flow has not been tested in every account. AI responses can omit, misread, or invent information; estimated marks are not official marks.
 
