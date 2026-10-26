@@ -14,7 +14,7 @@ This path sets up all three workflows together. You do not need to install separ
 
 ![Claude project instructions editor with combined StudySuperpowers instructions](assets/claude-set-project-instructions.png)
 
-	**If the download is not available yet:** The repository has no published release at present. Open [project-instructions.md](project-instructions.md) on GitHub and copy the text inside its code block into the Project's **Instructions** field.
+	**If the download fails:** Open [project-instructions.md](project-instructions.md) on GitHub and copy the text inside its code block into the Project's **Instructions** field.
 
 3. **Add course materials.** Select **+** beside **Context** and add learning outcomes and notes for one unit. Add only materials you are allowed to share. Begin with a small set, such as the fictional [sample ecology notes](../../examples/sample-course/sample-notes.md), and confirm Claude can read them.
 
@@ -44,7 +44,7 @@ In Claude, open [Customize > Skills](https://claude.ai/customize/skills), select
 
 Review a Skill before enabling it. These StudySuperpowers packages contain Markdown instructions only. Custom Skills are uploaded to an individual account; organization sharing depends on plan and administrator settings. For accounts without Skills access, return to Path A.
 
-These ZIP links become active when the first release is published. If they are not available, use Path A to start with the combined Project instructions.
+The [latest GitHub Release](https://github.com/keem-sys/StudySuperpowers/releases/latest) contains the three Skill ZIPs. If a ZIP download fails or Skills are unavailable to your account, use Path A.
 
 ## Start a study workflow
 

@@ -22,9 +22,9 @@ Open the **Sources** tab and select **Add sources**. Add relevant course files o
 
 OpenAI's current Projects documentation describes Project instructions and sources, not a native `SKILL.md` installer. Use the combined text file once; it adds learn-topic, active-recall, and exam-marker together as Project instructions. This is not native Skill installation and does not provide automatic skill discovery.
 
-1. Download [all ChatGPT Project instructions](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/chatgpt-project-instructions.txt). This combined file becomes available when a maintainer publishes the first release.
+1. Download [all ChatGPT Project instructions](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/chatgpt-project-instructions.txt) from the [latest release](https://github.com/keem-sys/StudySuperpowers/releases/latest).
 2. Open the `.txt` file, select all, and copy it.
-3. Paste the text into your Project's **Project instructions** and save. If the release download is not available yet, open [project-instructions.md](project-instructions.md) on GitHub and copy the contents of its text block instead.
+3. Paste the text into your Project's **Project instructions** and save. If the download fails, open [project-instructions.md](project-instructions.md) on GitHub and copy the contents of its text block instead.
 4. Add course notes and learning outcomes under the Project's **Sources** tab using **Add sources**. Do not upload the instructions as a source and expect them to activate.
 5. Start a new chat and run the [setup verification prompt](../../guides/setup-verification.md). Then ask for the mode you want.
 

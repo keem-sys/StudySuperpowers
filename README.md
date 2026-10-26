@@ -24,13 +24,13 @@ Students supply their own course materials. This repository does not contain uni
 
 **Optional:** [Path B installs native Claude Skills](platforms/claude/setup.md#path-b-install-native-claude-skills-optional). Skills are separate from Project instructions and require Claude's code-execution capability, which may be controlled by your organization.
 
-The repository currently has no published GitHub Release. Until one is available, open [Claude's combined Project instructions](platforms/claude/project-instructions.md) and copy the text in its code block. After release, the Claude guide links the combined text download.
+Download the [combined Claude Project instructions](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/claude-project-instructions.txt). This sets up all three workflows at once. If the download fails, use the source [project-instructions.md](platforms/claude/project-instructions.md) instead.
 
 ## Install for ChatGPT
 
 ChatGPT Projects do not document a native Skill installer. Follow the [ChatGPT Project setup](platforms/chatgpt/setup.md): paste one combined instructions file into **Project instructions**, add course files under **Sources**, then ask for a workflow by name. This is Project configuration, not native Skill installation.
 
-Until the first release is published, open [ChatGPT's combined Project instructions](platforms/chatgpt/project-instructions.md) and copy the text in its code block. After release, the ChatGPT guide links the combined text download.
+Download the [combined ChatGPT Project instructions](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/chatgpt-project-instructions.txt). This sets up all three workflows at once. If the download fails, use the source [project-instructions.md](platforms/chatgpt/project-instructions.md) instead.
 
 ## Quick start
 

@@ -19,7 +19,7 @@ The procedure should be actionable and should preserve interaction requirements 
 
 Do not create skill ZIP files manually. The [download builder](scripts/build-skill-downloads.sh) creates one Claude ZIP per workflow and one combined Project-instructions text file per platform. It checks skill metadata and required sections, validates archive structure, and confirms both combined files include all three workflows.
 
-GitHub Actions runs the builder on relevant pushes and pull requests. When a maintainer publishes a GitHub Release, the workflow builds and validates the packages, then attaches them to that release. The README's direct download links resolve to the latest release assets. The first release must be published after this workflow is available on the default branch.
+GitHub Actions runs the builder on relevant pushes and pull requests. When a maintainer publishes a GitHub Release, the workflow builds and validates the packages, then attaches them to that release. The README's direct download links resolve to the latest release assets. The initial release is [v0.1.0](https://github.com/keem-sys/StudySuperpowers/releases/tag/v0.1.0).
 
 ## Screenshot checklist
 

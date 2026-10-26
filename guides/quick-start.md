@@ -21,7 +21,7 @@ Availability, file limits, and interface details can depend on account or worksp
 
 The combined Project instructions provide learn-topic, active-recall, and exam-marker together. Project instructions configure a Project; they are not native Skills. Claude's optional Skill ZIPs install workflows separately and require eligible account settings. ChatGPT's documented approach is Project instructions, not native `SKILL.md` installation.
 
-GitHub Actions builds and validates the release assets when a maintainer publishes a release. The repository currently has no release, so direct download links are not active yet. Until then, use the linked Project instructions source files. StudySuperpowers does not detect a student's account state or install workflows automatically.
+GitHub Actions builds and validates the release assets when a maintainer publishes a release. The first release, [v0.1.0](https://github.com/keem-sys/StudySuperpowers/releases/tag/v0.1.0), is published and its direct downloads are active. StudySuperpowers does not detect a student's account state or install workflows automatically.
 
 ## Reuse progress between conversations
 
