@@ -75,7 +75,11 @@ Present the model answer as an example, not the only acceptable response. Acknow
 
 Where useful, invite the student to revise their answer for another review or attempt a new practice question. Keep this optional.
 
-## Guardrails
+## Expected output
+
+Assess the student's original answer first. Provide criterion-level feedback and, when justified, a checked suggested mark. Follow with actionable improvement advice and a separate model answer sized to the task. If marks or criteria do not support a defensible score, give qualitative feedback and explain the limitation.
+
+## Guardrails and failure handling
 
 - Never claim to award official marks or grades.
 - Never invent an official answer key, rubric, instructor policy, or marking rule.

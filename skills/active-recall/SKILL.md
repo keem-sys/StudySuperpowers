@@ -64,7 +64,11 @@ At the end of the session, provide a concise revision summary covering:
 
 Describe mastery cautiously. A single correct answer is evidence of success on that question, not proof of lasting mastery.
 
-## Guardrails
+## Expected output
+
+An interactive practice session with varied questions asked one at a time, specific feedback after each response, targeted retries or revisits for weak concepts, and a concise evidence-based summary of strengths, gaps, untested objectives, and next steps.
+
+## Guardrails and failure handling
 
 - Do not reveal an answer before the student attempts the question unless they explicitly request the answer or choose to skip the attempt.
 - Ask only one question per response during the interactive practice exchange.
