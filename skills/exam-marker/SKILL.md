@@ -7,49 +7,90 @@ description: Reviews practice exam answers against an official rubric or clearly
 
 ## Purpose
 
-Help a student improve an attempted examination answer by comparing it with the question and available marking criteria, then explaining a reasoned suggested mark and improvements.
+Help students improve their exam answers through criteria-based assessment, transparent scoring, and actionable feedback.
 
 ## When to use
 
-Use this workflow to review a student's own response to a practice, past, or instructor-provided question. It is not an official grading service and must not be used to claim an awarded mark.
+Use this skill to review a student's attempted practice, past, or instructor-provided question. Never present an AI assessment as an official grade.
 
 ## Required and optional inputs
 
-**Required:** The question and the student's answer.
+**Required:** The question and the student's answer, readable enough to assess.
 
-**Optional:** Available marks, official memorandum or rubric, course notes, expected answer format, and any marking rules supplied by the instructor.
+**Optional:** Total marks, official rubric or memorandum, course materials, expected answer format, and instructor-provided marking rules.
 
-If the question or answer is missing, request it. If the marks available are missing, ask for them or provide qualitative feedback without a numeric score. If no official rubric is supplied, any criteria and mark must be labelled as estimates.
+If the question or answer is missing or unreadable, request clarification before assessing. If the total marks are missing, provide qualitative feedback and request the total only when numerical scoring or mark-calibrated feedback is needed.
 
 ## Step-by-step procedure
 
-1. **Parse the task.** Identify the command word, content requirements, constraints, and available marks. Clarify ambiguity before scoring where it affects the result.
-2. **Establish the standard.** Use the supplied official memorandum or rubric first. Name it as the basis for assessment. If none is supplied, derive transparent, question-specific criteria from the prompt and relevant course materials, explicitly labelling them as estimated.
-3. **Compare point by point.** Identify accurate and relevant points, missing criteria, inaccuracies or contradictions, and irrelevant material. Do not reward unsupported content as if it appeared in the official rubric.
-4. **Suggest a mark.** Give a reasoned mark only when the total available marks are known and the evidence supports a defensible estimate. Show how credit was allocated. If the rubric is absent, incomplete, or ambiguous, say that the score is an estimate and explain uncertainty.
-5. **Provide a model answer.** Offer a concise model answer sized to the marks and the command word. Do not imply it is the only valid answer unless the official criteria say so.
-6. **Explain improvement.** Give specific, actionable advice: what to add, correct, remove, or organise differently. Connect suggestions to marks or criteria where possible.
-7. **Invite practice.** Offer a focused retry or a new question only after feedback; do not overwhelm the student with unrelated tasks.
+### 1. Understand the question
 
-## Expected output
+Identify the command word, requirements, constraints, expected format, and total marks. Interpret the command word according to the task. If ambiguity materially affects the assessment, explain it and ask for clarification where necessary. Never guess unreadable content.
 
-An assessment with question requirements and mark total, standard used, point-by-point strengths and gaps, a reasoned suggested mark where appropriate, a mark-sized model answer, and specific improvement advice.
+### 2. Establish the marking basis
 
-## Guardrails and failure handling
+Use the supplied official rubric or memorandum first. If none is available, derive transparent, question-specific estimated criteria from the question and relevant course materials.
 
-- Never label an AI assessment as an official mark. Use “suggested mark” or “estimated mark” as appropriate.
-- If no official memorandum or rubric is supplied, clearly label both the criteria and score as estimates.
-- Do not invent an official answer key, instructor policy, or marking rule.
-- Distinguish unsupported claims from demonstrably incorrect ones. Do not award credit for an unsupported claim unless the supplied rubric supports it; do not call it false without evidence.
-- If the source material or question is unreadable or contradictory, explain what cannot be assessed and ask for clarification; do not score uncertain content as fact.
-- Avoid false precision. If criteria do not support a numeric score, provide qualitative feedback instead.
-- Keep the model answer proportional to the available marks and explain that alternatives may earn credit under the real rubric.
-- Protect academic integrity: review practice attempts and do not facilitate misconduct in a restricted assessment.
+Clearly distinguish official criteria from estimates. If a rubric is ambiguous, identify the uncertainty, assess interpretable parts, and provide qualitative feedback where possible. Do not invent a scoring interpretation for unclear criteria.
+
+### 3. Assess the original answer
+
+Evaluate the student's answer before presenting any model answer. Compare it with the question and marking basis, identifying:
+
+- Accurate and relevant points.
+- Criteria fully met, partly met, or not met.
+- Missing requirements, inaccuracies, and contradictions.
+- Irrelevant content that does not address the question.
+
+Recognise valid points first. Accept equivalent wording and alternative approaches when their meaning and reasoning satisfy the criteria. Evaluate claims against the question, rubric, and relevant course materials; do not reject valid answers simply because they are absent from the supplied notes.
+
+### 4. Allocate marks when justified
+
+For each assessable criterion, show its maximum marks, marks awarded, and brief evidence from the student's answer.
+
+Award partial credit when the rubric or marking rules support it. Do not assume uniform partial-credit rules. Avoid deducting twice for the same underlying error unless separate deductions are explicitly justified by the rubric.
+
+Distinguish unsupported claims from demonstrably incorrect ones. Do not award credit for irrelevant or insufficiently justified claims when the criteria require relevance or justification.
+
+### 5. Calculate and qualify the suggested mark
+
+Give a numerical suggested mark only when the total available marks are known and the marking basis supports a defensible assessment.
+
+Show criterion-level allocations and verify that:
+- The maximum marks across the criteria are consistent with the question's total.
+- The awarded marks add up correctly.
+- The score reflects the evidence and marking criteria.
+
+Label rubric-free criteria and scores as estimates. Explain material uncertainty, and provide qualitative feedback instead when a numerical score would create false precision. Never imply that the suggested mark predicts the instructor's exact grade.
+
+### 6. Explain improvements and provide a model answer
+
+Give specific advice on what to add, correct, remove, or organise differently, linking recommendations to the question's requirements.
+
+After assessing the original answer, provide a separate model answer when useful. Match its depth to the command word, requirements, and available marks. If the total is unknown, keep it concise and state that it is not calibrated to a particular mark allocation.
+
+Present the model answer as an example, not the only acceptable response. Acknowledge that other valid answers may earn credit under the actual rubric.
+
+### 7. Offer a next step
+
+Where useful, invite the student to revise their answer for another review or attempt a new practice question. Keep this optional.
+
+## Guardrails
+
+- Never claim to award official marks or grades.
+- Never invent an official answer key, rubric, instructor policy, or marking rule.
+- Do not force numerical scoring when the evidence or criteria are insufficient.
+- Do not double-penalise errors without justification in the marking rules.
+- Do not treat an unsupported claim as automatically false.
+- Explain limitations caused by missing, ambiguous, contradictory, or unreadable material.
+- Do not insist on exact wording when a valid alternative satisfies the criteria.
+- Keep feedback constructive, specific, and proportionate to the question.
+- Protect academic integrity. If the student indicates that outside assistance is prohibited for a live, restricted assessment, do not provide the answer or a submission-ready solution. Offer conceptual guidance or a similar practice question instead.
 
 ## Evaluation criteria
 
-A successful review identifies the command word and marks; uses an official rubric when supplied; compares the answer against criteria; distinguishes correct, missing, inaccurate, and irrelevant content; gives a reasoned score with appropriate uncertainty; labels all rubric-free scores and criteria as estimates; provides a mark-appropriate model answer; and gives actionable improvement advice.
+A successful review uses the correct marking basis, identifies the question's requirements, maps marks to evidence, awards justified partial credit, avoids unjustified double penalties, checks arithmetic, labels estimates, acknowledges uncertainty, assesses the original answer before the model answer, and gives actionable improvement advice.
 
 ## Usage example
 
-> Use `exam-marker` on my practice answer below. The question is worth 5 marks and I have included the official rubric. Show which criteria I met, any omissions, a reasoned suggested mark, and a concise model answer.
+> Use `exam-marker` to review my practice answer. The question is worth 5 marks, and I have supplied the official rubric. Assess my original answer criterion by criterion, show the marks and supporting evidence, check the total, explain how I can improve, and then provide a separate concise model answer.

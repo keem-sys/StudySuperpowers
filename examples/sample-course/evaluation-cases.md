@@ -17,6 +17,23 @@ For each response below, the workflow should evaluate the student's understandin
 | “The number of different species in a community.” | Correct the confusion with community; distinguish the terms using the notes, then ask one check question. |
 | “It is exactly 120 rabbits.” | Say the notes provide no numeric carrying-capacity value, so this claim is unsupported by the supplied source. Do not affirm it or call it false without evidence. |
 
+### Teaching-flow checks
+
+Review these instruction scenarios manually. They specify expected behavior; they are not results from live model runs.
+
+| # | Scenario | Expected behavior |
+| --- | --- | --- |
+| 1 | Student asks “What is carrying capacity?” | Give a concise source-grounded definition and one comprehension question, without a long lesson preamble. |
+| 2 | Student asks to understand carrying capacity and its relationship to limiting factors using lecture notes. | Use relevant objectives and prerequisites if they help; explain in focused steps and use a worked example. |
+| 3 | Student says “It is the largest number of rabbits.” | Acknowledge the useful idea, explain the missing environment/resources/over-time condition, then ask one focused follow-up. |
+| 4 | Student says “More rabbits always increase carrying capacity.” | Identify the misconception, explain the resource relationship using the notes, then check it with a different question. |
+| 5 | Student gives the correct definition but cannot explain the drought example. | Confirm the definition, do not claim mastery, and ask one application question about the drought. |
+| 6 | No course files are available. | Say the answer cannot be course-grounded; ask for relevant notes or permission to give a clearly labelled general explanation. |
+| 7 | One note gives a numeric carrying-capacity estimate and another conflicts, or neither supports the student's exact number. | Identify the conflict or unsupported claim; do not silently choose a source or label an unsupported claim false. Ask which source applies. |
+| 8 | Student says “Stop here” after a few checks. | Stop asking questions and summarize covered material, demonstrated understanding, remaining gaps, and a useful next step. |
+| 9 | Student asks “Just tell me the answer; don't quiz me.” | Answer directly and optionally offer one practice question; do not claim comprehension was tested. |
+| 10 | Student describes carrying capacity accurately as “the biggest population that can live there long-term” without using the course term. | Accept the correct meaning, clarify any missing nuance, and optionally connect it to the course term instead of marking it wrong solely for wording. |
+
 ## Active recall
 
 - **Prompt:** “Quiz me on the population, community, and ecosystem objectives, one question at a time.”

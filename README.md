@@ -1,45 +1,64 @@
 # StudySuperpowers
 
-StudySuperpowers is an open-source collection of reusable AI study workflows that helps university students learn from their own course materials and prepare thoughtfully for exams.
+StudySuperpowers is an open-source collection of reusable AI study workflows for university students using their own course materials.
 
-## Why it exists
+It helps students understand difficult topics, practise active recall, and improve exam answers without needing prompt-engineering experience.
 
-Students often have slides, notes, learning outcomes, and practice questions but no consistent way to turn them into active, useful study sessions. StudySuperpowers provides clear workflows for learning a topic, practising retrieval, and reviewing exam answers, without requiring prompt-engineering experience.
+Read [Why StudySuperpowers?](WHY_STUDYSUPERPOWERS.md) for the project's rationale and the assumptions that still need validation.
 
-It is for university students who want structured support while keeping their course materials and their own judgement at the centre of their learning.
+## Study workflows
 
-## What is included
+- [Learn a topic](skills/learn-topic/SKILL.md): build understanding progressively and check comprehension.
+- [Active recall](skills/active-recall/SKILL.md): retrieve and apply knowledge with one question at a time.
+- [Exam marker](skills/exam-marker/SKILL.md): review practice answers against an official rubric when supplied; otherwise, clearly label estimated marks.
 
-- Three reusable study workflows: [Learn a topic](skills/learn-topic/SKILL.md), [Active recall](skills/active-recall/SKILL.md), and [Exam marker](skills/exam-marker/SKILL.md). Use them together through Project instructions or separately as native Claude Skills.
-- A reusable [base instruction template](templates/base-study-instructions.md).
-- Beginner setup guides for [Claude Projects](platforms/claude/setup.md) and [ChatGPT Projects](platforms/chatgpt/setup.md), with one combined Project instructions file for all three workflows on each platform.
-- A compact [fictional sample course](examples/sample-course/course-outline.md) for trying the workflows.
-- A [setup check](guides/setup-verification.md), [troubleshooting guide](guides/troubleshooting.md), and [advanced study guidance](guides/advanced-usage.md).
+Not sure which workflow to choose? See the [StudySuperpowers Skills Guide](SKILLS_GUIDE.md).
 
-Students supply their own course materials. This repository does not contain university-specific syllabuses, and its practice examples are not predictions or guarantees of examination questions.
+Students provide their own course notes, learning outcomes, and practice materials. This repository does not contain university syllabuses or guaranteed exam questions.
 
-## Install for Claude
+## Start here
 
-**Recommended for beginners:** follow [Path A: Start studying](platforms/claude/setup.md#path-a-start-studying-recommended). It uses one combined Project instructions file for learn-topic, active-recall, and exam-marker; add course notes once and choose a workflow in each chat.
+1. Choose [Claude](#claude) or [ChatGPT](#chatgpt).
+2. Create a Project for one course.
+3. Add the combined StudySuperpowers Project instructions.
+4. Add one unit of course notes and learning outcomes.
+5. Run the [setup verification prompt](guides/setup-verification.md), then ask to use a study workflow.
 
-**Optional:** [Path B installs native Claude Skills](platforms/claude/setup.md#path-b-install-native-claude-skills-optional). Skills are separate from Project instructions and require Claude's code-execution capability, which may be controlled by your organization.
+## Claude
 
-Download the [combined Claude Project instructions](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/claude-project-instructions.txt). This sets up all three workflows at once. If the download fails, use the source [project-instructions.md](platforms/claude/project-instructions.md) instead.
+**Recommended for beginners: Claude Project instructions.** Download the combined file for all three workflows, then paste it into your Claude Project's **Instructions**:
 
-## Install for ChatGPT
+- [Combined Claude Project instructions](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/claude-project-instructions.txt)
 
-ChatGPT Projects do not document a native Skill installer. Follow the [ChatGPT Project setup](platforms/chatgpt/setup.md): paste one combined instructions file into **Project instructions**, add course files under **Sources**, then ask for a workflow by name. This is Project configuration, not native Skill installation.
+This is Project configuration, not native Skill installation. Add course notes to the Project's **Context**. Follow [Path A](platforms/claude/setup.md#path-a-start-studying-recommended) for screenshots and the verification step.
 
-Download the [combined ChatGPT Project instructions](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/chatgpt-project-instructions.txt). This sets up all three workflows at once. If the download fails, use the source [project-instructions.md](platforms/chatgpt/project-instructions.md) instead.
+**Optional: native Claude Skills.** Each ZIP installs one reusable Skill. Claude's code-execution and file-creation capability must be enabled, and organization settings may restrict access. The current [v0.1.0 release](https://github.com/keem-sys/StudySuperpowers/releases/tag/v0.1.0) provides:
 
-## Quick start
+- [Learn a topic Skill ZIP](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/learn-topic.zip)
+- [Active recall Skill ZIP](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/active-recall.zip)
+- [Exam marker Skill ZIP](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/exam-marker.zip)
 
-1. Set up a course Project using one of the platform guides above.
-2. Add one unit of course notes and learning outcomes.
-3. Send the [setup verification prompt](guides/setup-verification.md).
-4. Ask for `learn-topic`, `active-recall`, or `exam-marker` and check feedback against your course materials.
+The next release will use clearer names: `claude-skill-learn-topic.zip`, `claude-skill-active-recall.zip`, and `claude-skill-exam-marker.zip`. See [Path B](platforms/claude/setup.md#path-b-install-native-claude-skills-optional).
 
-## A short study session
+## ChatGPT
+
+OpenAI's current Projects documentation describes Project instructions and sources, not native `SKILL.md` installation. Download the combined file, paste it into ChatGPT **Project instructions**, and add course materials under **Sources**:
+
+- [Combined ChatGPT Project instructions](https://github.com/keem-sys/StudySuperpowers/releases/latest/download/chatgpt-project-instructions.txt)
+
+This Project setup includes all three workflows; ask for a mode by name when you start a chat. Individual files for one workflow at a time will be included in the next release as `chatgpt-project-learn-topic.txt`, `chatgpt-project-active-recall.txt`, and `chatgpt-project-exam-marker.txt`. See the [ChatGPT setup guide](platforms/chatgpt/setup.md).
+
+## Which download?
+
+| File | Use it for |
+| --- | --- |
+| Claude Skill ZIP | Install one native, reusable Claude Skill where Skills are enabled. |
+| Claude Project instructions TXT | Configure all workflows in a Claude Project; not native Skill installation. |
+| ChatGPT Project instructions TXT | Configure all workflows in a ChatGPT Project; not native Skill installation. |
+
+The existing combined Project instruction downloads work today. The prefixed individual filenames above will be available after the next release is published.
+
+## Example session
 
 > **Student:** Use active-recall for the carrying-capacity learning objective. Ask one question at a time.
 >
@@ -47,20 +66,23 @@ Download the [combined ChatGPT Project instructions](https://github.com/keem-sys
 >
 > **Student:** The largest population the environment can support over time with its available resources.
 >
-> **AI:** Correct. You included both the environmental context and the resource limit. Next, apply it: what could happen to carrying capacity if a drought reduces available plant food?
+> **AI:** Correct. You included both the environmental context and the resource limit. What could happen to carrying capacity if drought reduces available plant food?
 
-See [the sample course](examples/sample-course/course-outline.md) for a small, source-grounded evaluation set.
+Try the workflows with the [fictional ecology sample course](examples/sample-course/course-outline.md).
 
 ## Compatibility and limitations
 
-Claude custom Skills are downloadable ZIP packages generated from these workflow files. ChatGPT support is a copy-ready combined Project-instructions approach, not a native Skill installation. Interfaces, availability, limits, and model behavior can vary by account and change over time; follow the platform guides for current details.
+Claude custom Skills are uploaded as ZIP packages. ChatGPT support in this repository uses Project instructions, not a native Skill mechanism. Features and eligibility can vary by platform, plan, and organization settings. StudySuperpowers does not detect account capabilities or install features automatically.
 
-Claude eligibility depends on code execution being enabled and may be controlled by an organization administrator. The project does not detect account capabilities. Claude's upload flow has not been tested in every account. AI responses can omit, misread, or invent information; estimated marks are not official marks.
+AI can misread sources or provide incorrect information. Verify important explanations against course materials. AI feedback is not an official grade and does not guarantee exam questions or results.
 
 ## Privacy and academic integrity
 
-Review [privacy and limitations](guides/privacy-and-limitations.md) before uploading material. Use only content you have permission to share with the selected service, and check your institution's rules about AI use. Do not submit AI-generated work as your own where that is prohibited. Verify important claims and marks against authoritative course materials and staff guidance.
+Review [privacy and limitations](guides/privacy-and-limitations.md) before uploading. Share only material you are permitted to use with the selected service, and follow your institution's rules for AI assistance.
 
-## Contributing and licence
+## Help and contributions
 
-Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the skill format and review checklist. This repository is licensed under the [MIT License](LICENSE), which permits reuse and adaptation with attribution and includes a warranty disclaimer.
+- [Troubleshooting](guides/troubleshooting.md)
+- [Advanced study setup](guides/advanced-usage.md)
+- [Contributing](CONTRIBUTING.md)
+- [MIT License](LICENSE)

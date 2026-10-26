@@ -50,19 +50,39 @@ for skill_dir in "$skills_dir"/*; do
   done
 
   if [[ "$zip_tool" == zip ]]; then
-    (cd "$skills_dir" && zip -q -r -X "$temp_dir/$skill_name.zip" "$skill_name")
+    (cd "$skills_dir" && zip -q -r -X "$temp_dir/claude-skill-$skill_name.zip" "$skill_name")
   else
-    (cd "$skills_dir" && 7z a -bd -y -tzip "$temp_dir/$skill_name.zip" "$skill_name" >/dev/null)
+    (cd "$skills_dir" && 7z a -bd -y -tzip "$temp_dir/claude-skill-$skill_name.zip" "$skill_name" >/dev/null)
   fi
-  unzip -tq "$temp_dir/$skill_name.zip" >/dev/null
-  entries=$(unzip -Z1 "$temp_dir/$skill_name.zip")
+  unzip -tq "$temp_dir/claude-skill-$skill_name.zip" >/dev/null
+  entries=$(unzip -Z1 "$temp_dir/claude-skill-$skill_name.zip")
   printf '%s\n' "$entries" | grep -Fxq "$skill_name/SKILL.md" || { printf 'Archive missing %s/SKILL.md\n' "$skill_name" >&2; exit 1; }
   while IFS= read -r entry; do
     [[ "$entry" == "$skill_name/"* ]] || { printf 'Unexpected archive path in %s.zip: %s\n' "$skill_name" "$entry" >&2; exit 1; }
   done <<< "$entries"
 
-  cp "$temp_dir/$skill_name.zip" "$output_dir/$skill_name.zip"
-  printf 'Built and validated %s.zip\n' "$skill_name"
+  for platform in claude chatgpt; do
+    instructions_file="$root_dir/platforms/$platform/project-instructions.md"
+    output_name="$platform-project-$skill_name.txt"
+    {
+      awk '
+        /^```text[[:space:]]*$/ { in_block = 1; next }
+        in_block && /^```[[:space:]]*$/ { exit }
+        in_block { print }
+      ' "$instructions_file"
+      printf '\n\nStudySuperpowers workflow: %s\n\n' "$skill_name"
+      awk '
+        NR == 1 && $0 == "---" { in_frontmatter = 1; next }
+        in_frontmatter && $0 == "---" { in_frontmatter = 0; next }
+        !in_frontmatter { print }
+      ' "$skill_file"
+    } > "$temp_dir/$output_name"
+    [[ -s "$temp_dir/$output_name" ]] || { printf 'Empty %s Project instructions for %s\n' "$platform" "$skill_name" >&2; exit 1; }
+    cp "$temp_dir/$output_name" "$output_dir/$output_name"
+  done
+
+  cp "$temp_dir/claude-skill-$skill_name.zip" "$output_dir/claude-skill-$skill_name.zip"
+  printf 'Built and validated claude-skill-%s.zip and individual Project files.\n' "$skill_name"
 done
 
 for platform in claude chatgpt; do
