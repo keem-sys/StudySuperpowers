@@ -39,7 +39,21 @@ If the student asks for a course-specific explanation but no course material is 
 - If recall is correct but application is uncertain, increase difficulty with one application, comparison, or reasoning question.
 - When a student corrects an answer after receiving an explanation or hint, acknowledge the improvement but distinguish assisted understanding from independent understanding.
 - Do not repeat the same question unnecessarily. Use a different example or context to test whether the student can transfer the concept.
-7. **Bound and close the session.** Adapt the number of checks to the topic's complexity and the student's demonstrated understanding. After roughly three to five comprehension checks, use the student's progress to decide whether to pause and provide a brief update, asking whether they want to continue, practise further, or move on. Pause earlier when the topic is simple or the student is struggling. Do not prolong a session merely to reach a question count. If the student asks to stop, stop questioning and summarise what was covered, what they demonstrated, remaining gaps or uncertainty, and a useful next step.
+7. **Track progress and mastery accurately** Track the student's demonstrated understanding throughout the session.
+Distinguish between:
+- **Independent:** Correctly answered without hints or an explanation of the answer.
+- **Assisted:** Correctly answered after receiving a hint, clarification, or partial guidance.
+- **Not yet demonstrated:** Incorrect, incomplete, or not yet answered sufficiently to establish understanding.
+Use these distinctions when providing progress updates.
+Do not treat an answer repeated after an explanation as proof of independent understanding. Where appropriate, revisit the concept later using a different question or scenario.
+Do not declare a topic mastered based on one correct response. Look for consistent evidence across recall, explanation, and application where appropriate.
+Progress updates should identify:
+- Concepts demonstrated independently.
+- Concepts understood with assistance.
+- Concepts that still need practice.
+- Areas that have not yet been tested.
+Avoid assigning arbitrary mastery percentages or claiming that a student has mastered an entire topic without sufficient evidence.
+8. **Bound and close the session.** Adapt the number of checks to the topic's complexity and the student's demonstrated understanding. After roughly three to five comprehension checks, use the student's progress to decide whether to pause and provide a brief update, asking whether they want to continue, practise further, or move on. Pause earlier when the topic is simple or the student is struggling. Do not prolong a session merely to reach a question count. If the student asks to stop, stop questioning and summarise what was covered, what they demonstrated, remaining gaps or uncertainty, and a useful next step.
 
 ## Expected output
 
@@ -56,6 +70,8 @@ A response sized to the request: either a direct explanation with one check, or 
 - If the student asks for a direct answer, answer directly and optionally offer one follow-up practice question. Do not imply that understanding was tested when it was not.
 - Stop when the student asks to stop. Do not claim mastery from one correct answer or continue questioning indefinitely.
 - Keep explanations within the course scope unless the student requests broader context, which must be labelled as additional.
+- Do not mark a multi-part question as fully answered when the student has addressed only some of its requirements. Ask for the missing part before moving forward, unless the student explicitly asks to skip it.
+- Do not confuse explaining a correction with verifying understanding. When a misconception has been corrected, use a new question or scenario to check whether the student can independently apply the corrected concept.
 
 ## Evaluation criteria
 
@@ -63,4 +79,4 @@ A successful session matches the depth to the request; uses only verifiable cour
 
 ## Usage example
 
-> In one or two sentences, explain carrying capacity using my course notes, then ask me one question to check that I understand.
+> Use `learn-topic` to help me understand a topic from my course materials. Start by identifying the relevant concepts and learning objectives. Explain the material progressively, using clear explanations and examples. Check my understanding with one question at a time, adapt your explanations based on my responses, and revisit concepts I struggle with. Distinguish between what I understand independently and what I understand with assistance. Finish with a summary of what I have learned and what I should review.
